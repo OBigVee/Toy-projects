@@ -1,3 +1,5 @@
-requirements- pip install python-docx
+### run the script to create a quick CV/resume
 
-to create a quick cv  run the script 
+##### requirements- pip install python-docx
+
+ 
