@@ -45,16 +45,23 @@ public class listFrag extends ListFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ArrayList<String> data = new ArrayList<>();
+        String [] data = getResources().getStringArray(R.array.pieces);
 
-        data.add("1, this is item 1");
-        data.add("2, this is item 2");
-        data.add("3, this is item 3");
-        data.add("4, this is item 4");
+        //ArrayList<String> data = new ArrayList<>();
+
+//        data.add("1, this is item 1");
+//        data.add("2, this is item 2");
+//        data.add("3, this is item 3");
+//        data.add("4, this is item 4");
 
 
         setListAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,data));
-        activity.onItemSelection(0);
+
+        // phone is landscape mode
+        if (getActivity().findViewById(R.id.layout_portrait) == null){
+            activity.onItemSelection(0);
+        }
+        //activity.onItemSelection(0);
     }
 
     @Override
