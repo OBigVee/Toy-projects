@@ -1,5 +1,6 @@
 package com.example.frag;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
@@ -23,6 +24,13 @@ public class MainActivity extends AppCompatActivity  implements listFrag.ItemSel
         tvDescription = findViewById(R.id.tvDescription);
         //descriptions = new ArrayList<String>();
         descriptions = getResources().getStringArray(R.array.descriptions);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+
 
         // in portrait mode
         if (findViewById(R.id.layout_portrait) != null) {
