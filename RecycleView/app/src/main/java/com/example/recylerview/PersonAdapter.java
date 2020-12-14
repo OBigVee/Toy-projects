@@ -16,9 +16,15 @@ import java.util.ArrayList;
 public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder> {
 
     private ArrayList<Person> people;
+    ItemClicked activity;
+
+    public interface ItemClicked{
+        void onItemClicked(int index);
+    }
 
     public PersonAdapter(Context context, ArrayList<Person> list){
         people = list;
+        activity = (ItemClicked) context;
 
     }
         // this class rep every items in the list view
@@ -26,7 +32,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
         ImageView ivPref;
         TextView tvName,tvSurname;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             ivPref = itemView.findViewById(R.id.ivPref);
             tvName = itemView.findViewById(R.id.tvName);
@@ -35,12 +41,15 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    activity.onItemClicked(people.indexOf((Person)itemView.getTag()));
 
                 }
             });
         }
 
     }
+
+
 
     @NonNull
     @Override
@@ -56,11 +65,22 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
         holder.tvName.setText(people.get(position).getName());
         holder.tvSurname.setText(people.get(position).getSurName());
 
+
+
+
         if (people.get(position).getPreference().equals("bus")){
             holder.ivPref.setImageResource(R.drawable.bus);
-        }else {
+        }
+        else if (people.get(position).getPreference().equals("plane")){
             holder.ivPref.setImageResource(R.drawable.plane);
         }
+        else if (people.get(position).getPreference().equals("train")){
+            holder.ivPref.setImageResource(R.drawable.train);
+        }
+        else {
+            holder.ivPref.setImageResource(R.drawable.bike);
+        }
+
     }
 
     @Override
