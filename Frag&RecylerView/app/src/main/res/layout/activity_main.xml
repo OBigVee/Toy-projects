@@ -1,0 +1,54 @@
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cont"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".MainActivity">
+
+
+    <fragment
+        android:id="@+id/listFrag"
+        android:name="com.example.fragrecyclerview.listFrag"
+        android:layout_width="217dp"
+        android:layout_height="756dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_list"
+        tools:layout_editor_absoluteX="-5dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/listFrag"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <fragment
+            android:id="@+id/detailFrag"
+            android:name="com.example.fragrecyclerview.DetailFrag"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_detail" />
+
+        <fragment
+            android:id="@+id/addPersonFrag"
+            android:name="com.example.fragrecyclerview.AddPersonFrag"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_add_person" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
