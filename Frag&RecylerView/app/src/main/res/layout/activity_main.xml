@@ -1,45 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cont"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 
     <fragment
-        android:id="@+id/fragment"
-        android:name="com.example.recyclerviewfrag.listFrag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
+        android:id="@+id/listFrag"
+        android:name="com.example.fragrecyclerview.listFrag"
+        android:layout_width="287dp"
+        android:layout_height="728dp"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:layout_editor_absoluteY="@dimen/cardview_default_elevation"
         tools:layout="@layout/fragment_list" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="80dp"
-        android:layout_height="64dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-
-        app:layout_constraintRight_toRightOf="@id/fragment"
-        tools:layout_editor_absoluteY="53dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/listFrag"
+        app:layout_constraintTop_toTopOf="parent">
 
         <fragment
-            android:id="@+id/fragment2"
-            android:name="com.example.recyclerviewfrag.detailFrag"
+            android:id="@+id/detailFrag"
+            android:name="com.example.fragrecyclerview.DetailFrag"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             tools:layout="@layout/fragment_detail" />
 
         <fragment
-            android:id="@+id/fragment3"
-            android:name="com.example.recyclerviewfrag.addPersonFrag"
+            android:id="@+id/addPersonFrag"
+            android:name="com.example.fragrecyclerview.AddPersonFrag"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             tools:layout="@layout/fragment_add_person" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
