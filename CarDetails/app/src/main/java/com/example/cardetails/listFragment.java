@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,12 +24,9 @@ public class listFragment extends Fragment {
     RecyclerView.LayoutManager layoutManager; //
     View view;
 
-
-
     public listFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,5 +47,7 @@ public class listFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         myAdapter = new CarAdapter(this.getActivity(),CarAppClass.cars);
         recyclerView.setAdapter(myAdapter);
+
     }
+
 }

@@ -14,16 +14,16 @@ import java.util.ArrayList;
 
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
     ArrayList<Car> cars;
-//    ItemClicked activity;
+    ItemClicked activity;
 
     public CarAdapter(Context context, ArrayList<Car> list){
         cars = list;
-       // activity = (ItemClicked) context;
+        activity = (ItemClicked) context;
     }
 
-//    public interface ItemClicked{
-//        void onItemClicked(int index);
-//    }
+    public interface ItemClicked{
+        void onItemClicked(int index);
+    }
     // get access to the row_layout id's
     // and then get them link to OnCreateViewHolder Method and on the onBindViewHolder where we set the items
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -39,6 +39,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    activity.onItemClicked(cars.indexOf((Car)v.getTag()));
 
 
                 }
