@@ -36,12 +36,12 @@ public class MainActivity extends AppCompatActivity implements PersonAdpater.Ite
         etName = findViewById(R.id.etName);
         etPhone = findViewById(R.id.etPhone);
 
-        ivContact = findViewById(R.id.ivContact); 
+        ivContact = findViewById(R.id.ivContact);
 
         // get the support of the fragment manager
         fragmentManager = this.getSupportFragmentManager();
         // use the support of the fragment manager to find the list fragment id and make connection with it
-        listFrag  = (listFrag) fragmentManager.findFragmentById(R.id.list);
+        listFrag  = (listFrag) fragmentManager.findFragmentById(R.id.listFrag);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override

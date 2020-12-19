@@ -10,19 +10,19 @@
     <fragment
         android:id="@+id/listFrag"
         android:name="com.example.fragrecyclerview.listFrag"
-        android:layout_width="287dp"
-        android:layout_height="728dp"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        android:layout_width="194dp"
+        android:layout_height="312dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_editor_absoluteY="@dimen/cardview_default_elevation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42"
         tools:layout="@layout/fragment_list" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="339dp"
+        android:layout_height="262dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,6 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             tools:layout="@layout/fragment_add_person" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
