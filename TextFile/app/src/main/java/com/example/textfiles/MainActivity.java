@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 //        btnAdd = findViewById(R.id.btnAdd);
 //        btnSave = findViewById(R.id.btnSave);
         persons = new ArrayList<Person>();
-        loadData();
+       loadData();
     }
 
         public void btnAdd(View v){
@@ -54,11 +54,13 @@ public class MainActivity extends AppCompatActivity {
         String text = "";
         for (int i=0;i<persons.size(); i++){
             text = text + persons.get(i).getName() + "\t" + persons.get(i).getSurname()+"\n";
+            System.out.println(text);
         }
         tvResult.setText(text);
     }
 
     public void loadData(){
+        //function loads the already saved data
         persons.clear(); // makes sure no duplicate is present
 
         File file = getApplicationContext().getFileStreamPath("data.txt");
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(file.exists()){
             try{
+                // if the file exist write directly to it.
+
                 BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput("data.txt")));
                 while ((lineFromFile = reader.readLine()) != null){
                     StringTokenizer tokens = new StringTokenizer(lineFromFile,",");

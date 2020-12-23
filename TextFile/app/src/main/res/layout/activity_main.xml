@@ -21,18 +21,20 @@
         android:layout_height="wrap_content"
         android:hint=" enter your last name"
         android:gravity="center"/>
+
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add"
-        />
+        android:onClick="btnAdd"
+        android:text="Add" />
+
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SAVE DATA TO FILE"
-        />
+        android:onClick="btnSave"
+        android:text="SAVE DATA TO FILE" />
     <TextView
         android:id="@+id/tvResult"
     android:layout_width="match_parent"
