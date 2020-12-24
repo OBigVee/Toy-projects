@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@android:dimen/app_icon_size"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/etNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Enter numbers of time to roll the dice"
+        />
+
+    <Button
+        android:id="@+id/btnRollDice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Roll Dice"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        />
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+</LinearLayout>
