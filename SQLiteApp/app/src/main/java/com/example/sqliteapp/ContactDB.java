@@ -14,7 +14,7 @@ public class ContactDB {
     public static final String KEY_CELL = "_cell";
 
 
-    private final String DATABASE_NAME = "ContactsDB";
+    private final String DATABASE_NAME = "ContactDB";
     private final String DATABASE_TABLE = "ContactsTable";
     private final int DATABASE_VERSION = 1;
 
