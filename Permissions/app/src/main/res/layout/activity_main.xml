@@ -13,8 +13,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Do Something"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="63dp">
+
+        app:layout_constraintBottom_toTopOf="@+id/btnPermissionsCamera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </Button>
+
+    <Button
+
+        android:id="@+id/btnPermissionsCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
     </Button>
 
