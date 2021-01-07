@@ -6,9 +6,14 @@ import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.widget.Toast;
 
-public class MyPlayService extends Service implements MediaPlayer.OnCompletionListener,MediaPlayer.OnPreparedListener,
-                MediaPlayer.OnErrorListener,MediaPlayer.OnSeekCompleteListener,MediaPlayer.OnInfoListener,
-                MediaPlayer.OnBufferingUpdateListener{
+public class MyPlayService extends Service implements
+        MediaPlayer.OnCompletionListener,
+        MediaPlayer.OnPreparedListener,
+        MediaPlayer.OnErrorListener,
+        MediaPlayer.OnSeekCompleteListener,
+        MediaPlayer.OnInfoListener,
+        MediaPlayer.OnBufferingUpdateListener
+{
 
     private MediaPlayer mediaPlayer;
     String link;
@@ -24,14 +29,13 @@ public class MyPlayService extends Service implements MediaPlayer.OnCompletionLi
     @Override
     public void onCreate() {
         super.onCreate();
-
+        mediaPlayer = new MediaPlayer();
         mediaPlayer.setOnCompletionListener(this);
         mediaPlayer.setOnPreparedListener(this);
         mediaPlayer.setOnErrorListener(this);
         mediaPlayer.setOnSeekCompleteListener(this);
         mediaPlayer.setOnInfoListener(this);
         mediaPlayer.setOnBufferingUpdateListener(this);
-
     }
 
     @Override
