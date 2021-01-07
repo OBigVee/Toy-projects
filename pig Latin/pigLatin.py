@@ -22,11 +22,16 @@ class PigLatin:
 		for  eachPhrase in self.splitPhrase:
 			raw = " "
 			char_1 = eachPhrase[0] 
+			#[i for i in range(len(eachPhrase)) pass if i== 0 else  raw+=eachPhrase[i]]
+			
 			for i in range(len(eachPhrase)):
-				if i ==0:
+				if (i ==0) :
 					pass
 				else:
-					raw += eachPhrase[i]
+					raw+=eachPhrase[i]
+			# 		pass
+			# 	else:
+			# 		raw += eachPhrase[i]
 			self.pigLatin.append(raw+char_1+"ay")
 		print(self.pigLatin)
 		return self.pigLatin
