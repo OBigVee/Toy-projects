@@ -2,15 +2,16 @@ package com.example.musicplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MusicStoppedListener {
 
-    ImageView ivPlay;
+    ImageView ivPlay, ivPhoto;
     String audioLink = "https://dl.dropbox.com/s/8cyfl0nbdmh4upj/Lawrence%20Oyor%20if%20I%20press%20and%20press.mp3?dl=0";
     boolean musicPlaying = false;
     Intent serviceIntent;
@@ -20,7 +21,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ivPlay = (ImageView) findViewById(R.id.ivPlay);
         ivPlay.setBackgroundResource(R.mipmap.play);
+
+        ivPhoto = (ImageView) findViewById(R.id.ivPhoto);
+        ivPhoto.setBackgroundResource(R.mipmap.do_more);
+
         serviceIntent = new Intent(this,MyPlayService.class);
+
+        Application.context = (Context) MainActivity.this;
 
         ivPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,11 +36,14 @@ public class MainActivity extends AppCompatActivity {
                 {
                     playAudio();
                     ivPlay.setImageResource(R.mipmap.pause);
+                    ivPhoto.setImageResource(R.mipmap.music);
+
                     musicPlaying = true;
                 }
                 else {
                     stopPlayService();
                     ivPlay.setImageResource(R.mipmap.play);
+                    ivPhoto.setImageResource(R.mipmap.do_more);
                     musicPlaying = false;
                 }
 
@@ -59,4 +69,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onMusicStopped() {
+        ivPlay.setImageResource(R.mipmap.play);
+        ivPhoto.setImageResource(R.mipmap.do_more);
+        musicPlaying = false;
+    }
 }

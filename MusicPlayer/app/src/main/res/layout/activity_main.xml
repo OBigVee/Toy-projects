@@ -4,18 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/ivPhoto"
+        android:layout_width="344dp"
+        android:layout_height="304dp"
+        app:layout_constraintBottom_toTopOf="@+id/ivPlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.317"
+        app:srcCompat="@mipmap/do_more" />
 
     <ImageView
         android:id="@+id/ivPlay"
         android:layout_width="250dp"
         android:layout_height="259dp"
         android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/play"
-        android:focusable="true" />
+        app:layout_constraintVertical_bias="0.994"
+        app:srcCompat="@mipmap/play" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.musicplayer;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
@@ -16,7 +17,10 @@ public class MyPlayService extends Service implements
 {
 
     private MediaPlayer mediaPlayer;
+    private MusicStoppedListener musicStoppedListener;
+    //Context context ;
     String link;
+
     public MyPlayService() {
     }
 
@@ -45,6 +49,7 @@ public class MyPlayService extends Service implements
         link = intent.getStringExtra("audioLink");
 
         mediaPlayer.reset();
+        musicStoppedListener = (MusicStoppedListener) Application.context;
         if(!mediaPlayer.isPlaying()){
             try{
                 mediaPlayer.setDataSource(link);
@@ -80,7 +85,9 @@ public class MyPlayService extends Service implements
     public void onCompletion(MediaPlayer mp) {
         if(mp.isPlaying()){
             mp.stop();
+
         }
+        musicStoppedListener.onMusicStopped();
         stopSelf();
     }
 
