@@ -7,4 +7,5 @@ dependencies {
     compile 'com.makeramen:roundedimageview:2.3.0'
 }
 ```
+![screenShot](https://github.com/OBigVee/Toy-projects/blob/master/UI%20Player/screenShot/UiPlayer.png)
 
