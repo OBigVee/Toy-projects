@@ -1,8 +1,10 @@
 package com.example.quizapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,7 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
     Button btnTrue,btnFalse,btnNext;
     ImageView ivPrevQuestion,ivNextQuestion;
 
@@ -29,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG,"onCreate(Bundle) called");
         setContentView(R.layout.activity_main);
+        if(savedInstanceState != null){
+            currentIndex = savedInstanceState.getInt(KEY_INDEX,0);
+        }
 
         tvQuestion = findViewById(R.id.tvQuestion);
         int question = questionBank[currentIndex].getTextResourceId();
@@ -41,8 +48,18 @@ public class MainActivity extends AppCompatActivity {
         ivNextQuestion = (ImageView) findViewById(R.id.ivNextQuestion);
         ivPrevQuestion = (ImageView) findViewById(R.id.ivPrevQuestion);
 
+        tvQuestion.setOnClickListener(new View.OnClickListener() {
+            // user can move to the next question by just touching the text screen
+            @Override
+            public void onClick(View v) {
+                int question = questionBank[currentIndex].getTextResourceId();
+                currentIndex = (currentIndex+1)%questionBank.length;
+                tvQuestion.setText(question);
+            }
+        });
 
         //btnNext = (Button) findViewById(R.id.btnNext);
+        // TRUE BUTTON
         btnTrue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // FALSE BUTTON
         btnFalse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,19 +110,6 @@ public class MainActivity extends AppCompatActivity {
 //            @Override
 //            public void onClick(View v) {
 ////                int question = questionBank[currentIndex].getTextResourceId();
-////                for (int i=0; i<questionBank.length;currentIndex++){
-////                   tvQuestion.setText(question);
-////                }
-//               // Toast.makeText(MainActivity.this, "Goto the next question", Toast.LENGTH_SHORT).show();
-////                currentIndex = (currentIndex++);
-////                if (currentIndex == questionBank.length){
-////                    Toast.makeText(MainActivity.this, "End of question!", Toast.LENGTH_SHORT).show();
-////                }
-////                else {
-////                    int question = questionBank[currentIndex].getTextResourceId();
-////                    tvQuestion.setText(question);
-////                    updateQuestion();
-////                }
 //                currentIndex = (currentIndex+1) % questionBank.length;
 //                updateQuestion();
 //               // int question = questionBank[currentIndex].getTextResourceId();
@@ -112,6 +117,51 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG,"onStart() called");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG,"onResume() called");
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause() called");
+    }
+
+    /* === SAVE DATA ACROSS ROTATION ===
+    save and pass the current question index value
+     across resource activity(i.e while screen layout changes)
+     */
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i(TAG,"onSaveInstance");
+        outState.putInt(KEY_INDEX,currentIndex);
+    }
+    
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG,"onStop() called");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG,"onDestroy() called");
     }
 
     private void  updateQuestion(){

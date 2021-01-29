@@ -6,6 +6,8 @@
     <string name="toastCorrect">correct!</string>
     <string name="toastInCorrect">Not Correct!</string>
     <string name="btnNext">Next</string>
+    <string name="actionMessage">You can touch the question to move\n the next question!</string>
+
 
     <string name="question_australia">Canberra is the capital of Australia.</string>
     <string name="question_oceans">The Pacific Ocean is larger than the Atlantic Ocean.</string>
