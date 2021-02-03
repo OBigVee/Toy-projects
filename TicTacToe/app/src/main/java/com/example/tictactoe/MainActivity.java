@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Game Resetting now! ", Toast.LENGTH_SHORT).show();
+                resetGame();
+                Toast.makeText(MainActivity.this, "Game Reset Now! ", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -151,6 +152,12 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         }
         roundCount = 0;
         player1Turn = true;
+    }
+    private void resetGame(){
+        player1Points = 0;
+        player2Points = 0;
+        updatePointsText();
+        resetBoard();
     }
 
 }
